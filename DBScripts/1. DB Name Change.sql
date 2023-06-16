@@ -1,0 +1,1 @@
+ALTER DATABASE [money-list-db] MODIFY NAME = [Point-Of-Sale];
