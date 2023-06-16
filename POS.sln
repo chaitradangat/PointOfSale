@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "POS.Api", "POS.Api\POS.Api.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "POS.Repository", "POS.Repository\POS.Repository.csproj", "{CD22934C-B14F-4999-91E9-E79C0B19FADE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "POS.Domain", "POS.Domain\POS.Domain.csproj", "{C51153BB-F129-4414-A297-1497E7759313}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{CD22934C-B14F-4999-91E9-E79C0B19FADE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CD22934C-B14F-4999-91E9-E79C0B19FADE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CD22934C-B14F-4999-91E9-E79C0B19FADE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C51153BB-F129-4414-A297-1497E7759313}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C51153BB-F129-4414-A297-1497E7759313}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C51153BB-F129-4414-A297-1497E7759313}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C51153BB-F129-4414-A297-1497E7759313}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
