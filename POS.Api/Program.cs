@@ -1,7 +1,20 @@
+using Azure.Core;
+using Azure.Extensions.AspNetCore.Configuration.Secrets;
+using Azure.Identity;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+//Azure AD stuff
+ConfigurationBuilder builder1 = new ConfigurationBuilder();
 
+builder1.AddAzureKeyVault(new Uri("xxxx"), new DefaultAzureCredential());
+
+IConfiguration configuration = builder1.Build();
+
+Console.WriteLine(configuration["pos-db-constring"]);
+
+
+// Add services to the container.
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
