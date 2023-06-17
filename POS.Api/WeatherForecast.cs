@@ -1,3 +1,5 @@
+using System;
+
 namespace POS.Api;
 
 public class WeatherForecast
