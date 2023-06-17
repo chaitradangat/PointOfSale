@@ -1,25 +1,35 @@
+using System;
+
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
+using Azure.Core;
+using Azure.Extensions.AspNetCore.Configuration.Secrets;
+using Azure.Identity;
+
 namespace POS.Api
 {
     public class Startup
     {
-        public IConfiguration configRoot
-        {
-            get;
-        }
+        private readonly IConfiguration _config;
         public Startup(IConfiguration configuration)
         {
-            configRoot = configuration;
+            _config = configuration;
         }
         public void ConfigureServices(IServiceCollection services)
         {
-            // Add services to the container.
-            //1.
+            //azure key vault stuff : refactor this in to an middleware
+            var AzureKeyVaultUri = _config["KeyVaultConfiguration:KeyVaultURL"];
+
+            ConfigurationManager configurationManager= (ConfigurationManager)_config;
+
+            configurationManager.AddAzureKeyVault(new Uri(AzureKeyVaultUri), new DefaultAzureCredential());
+
+            //Console.WriteLine(_config["pos-db-constring"]);
+            
             services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             services.AddEndpointsApiExplorer();
@@ -32,7 +42,7 @@ namespace POS.Api
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
-
+            
             app.UseHttpsRedirection();
 
             app.UseAuthorization();
