@@ -1,0 +1,6 @@
+1. dotnet dev-certs https --clean
+2. dotnet dev-certs https --trust
+3. export .crt format certificate from browser page showing message `net::ERR_CERT_AUTHORITY_INVALID`
+4. certmgr.msc -> opens up certificate manager for `Current User`
+5. import .crt from step 3 into `Trusted Root Certificate Authorities/Certificates`
+6. close browser and relaunch the .NET Core application
